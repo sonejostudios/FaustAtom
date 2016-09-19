@@ -50,19 +50,19 @@
 
 # special sliders
   'slider.nentry':
-    'prefix': 'nentry'
+    'prefix': 'slider.nentry'
     'body': 'nentry("foo", 0, 0, 10, 1)'
 
   'slider.menu':
-    'prefix': 'menu'
+    'prefix': 'slider.menu'
     'body': """hslider("Menu[style:menu{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
   'slider.radio.h':
-    'prefix': 'radio h'
+    'prefix': 'slider.radio.h'
     'body': """hslider("Radio Buttons[style:radio{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
   'slider.radio.v':
-    'prefix': 'radio v'
+    'prefix': 'slider.radio.v'
     'body': """vslider("Radio Buttons[style:radio{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
 
