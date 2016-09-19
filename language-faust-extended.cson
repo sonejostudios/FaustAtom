@@ -1,56 +1,17 @@
 '.source.faust':
 
 #import libs
-  'import music.lib':
-    'prefix': 'import music.lib'
-    'body': 'import("music.lib");'
+  'import stdfaust.lib':
+    'prefix': 'import stdfaust.lib'
+    'body': 'import("stdfaust.lib");'
 
-  'import effect.lib':
-    'prefix': 'import effect.lib'
-    'body': 'import("effect.lib");'
-
-  'import filter.lib':
-    'prefix': 'import filter.lib'
-    'body': 'import("filter.lib");'
-
-  'import math.lib':
-    'prefix': 'import math.lib'
-    'body': 'import("math.lib");'
-
-  'import oscillator.lib':
-    'prefix': 'import oscillator.lib'
-    'body': 'import("oscillator.lib");'
-
-  'import instrument.lib':
-    'prefix': 'import instrument.lib'
-    'body': 'import("instrument.lib");'
-
-  'import hoa.lib':
-    'prefix': 'import hoa.lib'
-    'body': 'import("hoa.lib");'
-
-  'import maxmsp.lib':
-    'prefix': 'import maxmsp.lib'
-    'body': 'import("maxmsp.lib");'
-
-  'import reduce.lib':
-    'prefix': 'import reduce.lib'
-    'body': 'import("reduce.lib");'
-
-  'import tonestack.lib':
-    'prefix': 'import tonestack.lib'
-    'body': 'import("tonestack.lib");'
-
-  'import tube.lib':
-    'prefix': 'import tube.lib'
-    'body': 'import("tube.lib");'
 
 
 #declare all
   'declare meta info all':
     'prefix': 'declare meta info all'
     'body': """
-            declare name        "App's Name";
+            declare name        "DSP Name";
             declare version     "0.1";
             declare author      "Author's Name";
             declare copyright   "Copyright";
@@ -81,26 +42,26 @@
 
 
 
-  'knob':
-    'prefix': 'knob'
+  'slider.knob':
+    'prefix': 'slider.knob'
     'body': 'hslider("knob[style: knob]", 0, 0, 1, 0.01)'
 
 
 
 # special sliders
-  'nentry':
+  'slider.nentry':
     'prefix': 'nentry'
     'body': 'nentry("foo", 0, 0, 10, 1)'
 
-  'menu':
+  'slider.menu':
     'prefix': 'menu'
     'body': """hslider("Menu[style:menu{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
-  'radio.h':
+  'slider.radio.h':
     'prefix': 'radio h'
     'body': """hslider("Radio Buttons[style:radio{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
-  'radio.v':
+  'slider.radio.v':
     'prefix': 'radio v'
     'body': """vslider("Radio Buttons[style:radio{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
@@ -205,72 +166,41 @@
 
 
 # oscillators
-  'osc(440) (music.lib)':
-    'prefix': 'osc(440) (music.lib)'
-    'body': 'osc(440)'
+  'osc(440)':
+    'prefix': 'os.osc(440)'
+    'body': 'os.osc(440)'
 
-  'square(440) (oscillator.lib)':
-    'prefix': 'square(440) (oscillator.lib)'
-    'body': 'square(440)'
 
-  'triangle(440) (oscillator.lib)':
-    'prefix': 'triangle(440) (oscillator.lib)'
-    'body': 'triangle(440)'
-
-  'sawtooth(440) (oscillator.lib)':
-    'prefix': 'sawtooth(440) (oscillator.lib)'
-    'body': 'saw1(440)'
-
-  'noise (music.lib)':
-    'prefix': 'noise (music.lib)'
-    'body': 'noise'
-
-#LFOs
-  'squarepos.lfo (oscillator.lib)':
-    'prefix': 'squarepos.lfo (oscillator.lib)'
-    'body': 'lf_squarewavepos(freq)'
-
-  'trianglepos.lfo (oscillator.lib)':
-    'prefix': 'trianglepos.lfo (oscillator.lib)'
-    'body': 'lf_trianglepos(freq)'
-
-  'sawtoothpos.lfo (oscillator.lib)':
-    'prefix': 'sawtoothpos.lfo (oscillator.lib)'
-    'body': 'lf_sawpos(freq)'
-
-  'noise.lfo (oscillator.lib)':
-    'prefix': 'noise.lfo (oscillator.lib)'
-    'body': 'lfnoise(freq)'
 
 
 #libs
   #music.lib
-  'db2linear(x) (music.lib)':
-    'prefix': 'db2linear(x) (music.lib)'
-    'body': 'db2linear(x)'
+  'db2linear(l) (basic.lib)':
+    'prefix': 'db2linear(l) (basic.lib)'
+    'body': 'ba.db2linear(l)'
 
-  'linear2db(x) (music.lib)':
-    'prefix': 'linear2db(x) (music.lib)'
-    'body': 'linear2db(x)'
+  'linear2db(g) (basic.lib)':
+    'prefix': 'linear2db(g) (basic.lib)'
+    'body': 'ba.linear2db(g)'
 
 
 
   #effect.lib
-  'smooth(0.999) (effect.lib)':
-    'prefix': 'smooth(0.999) (effect.lib)'
-    'body': 'smooth(0.999)'
+  'smooth(0.999) (signal.lib)':
+    'prefix': 'smooth(0.999) (signal.lib)'
+    'body': 'si.smooth(0.999)'
 
-  'amp_follower(rel) (effect.lib)':
-    'prefix': 'amp_follower(rel) (effect.lib)'
-    'body': 'amp_follower(0.5)'
+  'amp_follower(rel) (analyzer.lib)':
+    'prefix': 'amp_follower(rel) (analyzer.lib)'
+    'body': 'an.amp_follower(0.5)'
 
-  'amp_follower_ud(att,rel) (effect.lib)':
-    'prefix': 'amp_follower_ud(att,rel) (effect.lib)'
-    'body': 'amp_follower_ud(0.5, 1)'
+  'amp_follower_ud(att,rel) (analyzer.lib)':
+    'prefix': 'amp_follower_ud(att,rel) (analyzer.lib)'
+    'body': 'an.amp_follower_ud(0.5, 1)'
 
-  'amp_follower_ar(att,rel) (effect.lib)':
-    'prefix': 'amp_follower_ar(att,rel) (effect.lib)'
-    'body': 'amp_follower_ar(1, 0.5)'
+  'amp_follower_ar(att,rel) (analyzer.lib)':
+    'prefix': 'amp_follower_ar(att,rel) (analyzer.lib)'
+    'body': 'an.amp_follower_ar(1, 0.5)'
 
 
 #presets
