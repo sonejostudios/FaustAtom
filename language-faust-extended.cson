@@ -1,13 +1,35 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
 '.source.faust':
 
-#import libs
+# import libs
   'import stdfaust.lib':
     'prefix': 'import stdfaust.lib'
     'body': 'import("stdfaust.lib");'
 
 
 
-#declare all
+# declare all
   'declare meta info all':
     'prefix': 'declare meta info all'
     'body': """
@@ -21,7 +43,7 @@
     """
 
 
-#sliders
+# sliders
   'slider.h':
     'prefix': 'slider.h'
     'body': 'hslider("${1:volume}",${2:0},${3:0},${4:1},${5:0.01})$6'
@@ -66,7 +88,7 @@
     'body': """vslider("Radio Buttons[style:radio{'Zero':0 ; 'One':1 ; 'Two':2}]", 0, 0, 2, 1)"""
 
 
-#gui bools
+# gui bools
   'button':
     'prefix': 'button'
     'body': 'button("foo")'
@@ -76,7 +98,7 @@
     'body': 'checkbox("foo")'
 
 
-#groups
+# groups
   'group.h':
     'prefix': 'group.h'
     'body': 'hgroup("foo",$1)'
@@ -109,9 +131,13 @@
     'prefix': 'bargraph.v dB'
     'body': 'vbargraph("dB graph[unit: dB]", -70, 10)'
 
-  'bargraph LED':
-    'prefix': 'bargraph LED'
+  'bargraph.led':
+    'prefix': 'bargraph.led'
     'body': 'hbargraph("led[style: led]", 0, 1)'
+
+  'bargraph.numerical':
+    'prefix': 'bargraph.numerical'
+    'body': 'hbargraph("numercial[style: led]", 0, 1)'
 
 
 # delay tables
@@ -128,7 +154,7 @@
     'body': 'select3(_,_,_,_)'
 
 
-#arithmetics
+# arithmetics
   'int':
     'prefix': 'int'
     'body': 'int'
@@ -138,73 +164,7 @@
     'body': 'float'
 
 
-#comparisons
-  'comparison <':
-    'prefix': 'comparison <'
-    'body': '<'
-
-  'comparison <=':
-    'prefix': 'comparison <='
-    'body': '<='
-
-  'comparison >':
-    'prefix': 'comparison >'
-    'body': '>'
-
-  'comparison >=':
-    'prefix': 'comparison >='
-    'body': '>='
-
-  'comparison ==':
-    'prefix': 'comparison =='
-    'body': '=='
-
-  'comparison !=':
-    'prefix': 'comparison !='
-    'body': '!='
-
-
-
-# oscillators
-  'osc(440)':
-    'prefix': 'os.osc(440)'
-    'body': 'os.osc(440)'
-
-
-
-
-#libs
-  #music.lib
-  'db2linear(l) (basic.lib)':
-    'prefix': 'db2linear(l) (basic.lib)'
-    'body': 'ba.db2linear(l)'
-
-  'linear2db(g) (basic.lib)':
-    'prefix': 'linear2db(g) (basic.lib)'
-    'body': 'ba.linear2db(g)'
-
-
-
-  #effect.lib
-  'smooth(0.999) (signal.lib)':
-    'prefix': 'smooth(0.999) (signal.lib)'
-    'body': 'si.smooth(0.999)'
-
-  'amp_follower(rel) (analyzer.lib)':
-    'prefix': 'amp_follower(rel) (analyzer.lib)'
-    'body': 'an.amp_follower(0.5)'
-
-  'amp_follower_ud(att,rel) (analyzer.lib)':
-    'prefix': 'amp_follower_ud(att,rel) (analyzer.lib)'
-    'body': 'an.amp_follower_ud(0.5, 1)'
-
-  'amp_follower_ar(att,rel) (analyzer.lib)':
-    'prefix': 'amp_follower_ar(att,rel) (analyzer.lib)'
-    'body': 'an.amp_follower_ar(1, 0.5)'
-
-
-#presets
-
+# presets
   'preset volume':
     'prefix': 'preset volume'
     'body': 'volume = hslider("vol", 0, 0, 1, 0.01) : smooth(0.999);'
@@ -217,7 +177,51 @@
     'prefix': 'preset onoff'
     'body': 'onoff = checkbox("on-off") : smooth(0.999);'
 
-  'SH Sample and Hold':
-    'prefix': 'SH Sample and Hold'
-    'body': 'SH(trig,x) = (*(1 - trig) + x * trig) ~_;'
+
+
+# libs
+
+  # miscoscillators
+  'osc(440)':
+    'prefix': 'os.osc(440)'
+    'body': 'os.osc(440)'
+
+
+  # basic.lib
+  'db2linear(l) (basic.lib)':
+    'prefix': 'db2linear(l) (basic.lib)'
+    'body': 'ba.db2linear(l)'
+
+  'linear2db(g) (basic.lib)':
+    'prefix': 'linear2db(g) (basic.lib)'
+    'body': 'ba.linear2db(g)'
+
+  'latch(clocksig) (basic.lib)':
+    'prefix': 'latch(clocksig) (basic.lib)'
+    'body': 'ba.latch(clocksig)'
+
+  'sAndH(t) (basic.lib)':
+    'prefix': 'sAndH(t) (basic.lib)'
+    'body': 'ba.sAndH(t)'
+
+
+
+  # signal.lib
+  'smooth(0.999) (signal.lib)':
+    'prefix': 'smooth(0.999) (signal.lib)'
+    'body': 'si.smooth(0.999)'
+
+
+  # analyzer.lib
+  'amp_follower(rel) (analyzer.lib)':
+    'prefix': 'amp_follower(rel) (analyzer.lib)'
+    'body': 'an.amp_follower(0.5)'
+
+  'amp_follower_ud(att,rel) (analyzer.lib)':
+    'prefix': 'amp_follower_ud(att,rel) (analyzer.lib)'
+    'body': 'an.amp_follower_ud(0.5, 1)'
+
+  'amp_follower_ar(att,rel) (analyzer.lib)':
+    'prefix': 'amp_follower_ar(att,rel) (analyzer.lib)'
+    'body': 'an.amp_follower_ar(1, 0.5)'
 
