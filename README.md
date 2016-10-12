@@ -27,7 +27,7 @@ This will be the current directory for the bock diagrams and FaustLive.
 
 The process palette will provide a couple a very handy commands for faust:
 
-* faust2SVG (shortcut: shift-ctrl-s): this will save the .dsp file and export it as block diagram)
+* faust2SVG (shortcut: shift-ctrl-s): this will save the .dsp file and export it as block diagram.
 * faust2jaqt (shortcut: shift-ctrl-j)
 * faust2lv2
 * Faust gThumb (shortcut: shift-ctrl-v): open block diagram with gThumb (as soon as the block diagram is re-drawn (by faust2svg) gThumb will reload it automatically)
