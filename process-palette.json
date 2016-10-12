@@ -46,7 +46,7 @@
       "cwd": null,
       "inputDialogs": [],
       "env": {},
-      "keystroke": "ctrl-shift-j",
+      "keystroke": null,
       "stream": false,
       "outputTarget": "panel",
       "outputBufferSize": 80000,
