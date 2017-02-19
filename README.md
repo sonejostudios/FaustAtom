@@ -21,7 +21,7 @@ __Process Palette:__
 
 2. Copy process-palette.json in ~$ .atom
 This will install the faust process palette as global palette. To install it in a project only please read the doc of process palette.
-For OSX users, there is a dedicated Palette here: https://gist.github.com/olilarkin/0491715c5f4f44bf56db79db3097bdb8
+For OSX users, there is an OSX Palette here: https://gist.github.com/olilarkin/0491715c5f4f44bf56db79db3097bdb8
 
 3. Create a "FaustAtom" directory in your home folder.
 This will be the current directory for the bock diagrams and FaustLive.
